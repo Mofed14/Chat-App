@@ -42,10 +42,10 @@ sendLocation.addEventListener("click", () => {
     // callback the third argument is a socket acknowledgement
     socket.emit("sendLocation", { latitude, longitude }, () => {
       // enable after acknowledgement
-      // sendLocation.removeAttribute("disabled");
+      sendLocation.removeAttribute("disabled");
 
-      // latitude = "";
-      // longitude = "";
+      latitude = "";
+      longitude = "";
 
       console.log("Location shared!");
     });
