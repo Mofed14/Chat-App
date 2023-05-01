@@ -1,5 +1,5 @@
 // * Environment Variables
-require("dotenv").config();
+// require("dotenv").config();
 
 // * Custome Modules
 const {
@@ -12,7 +12,6 @@ const {
   getUser,
   getUsersInRoom,
 } = require("./utils/users.js");
-const { badWordsInArabic } = require("./utils/bad-words.js");
 
 // * Modules
 const path = require("path");
@@ -63,15 +62,11 @@ io.on("connection", (socket) => {
     const user = getUser(socket.id);
     if (user) {
       const filter = new Filter();
-      filter.addWords("Ya Ibn el Sharmouta", "bad", "word");
 
       if (filter.isProfane(inputValue)) {
         return callback("profanity is not allowed");
       }
 
-      if (badWordsInArabic(inputValue)) {
-        return callback("الكلام السافل غير مسموح");
-      }
       io.to(user.room).emit(
         "message",
         generateMessage(user.username, `${inputValue}`)
