@@ -1,0 +1,8 @@
+Now so far, we've sent events from server to client using three methods.
+
+-- socket.emit() : to send an event to a specific user
+-- io.emit()     : to send an event to every connected client
+-- socket.broadcast.emit()  : to send an event to every connected client except for this one.
+-- io.to.emit()  : it emits an event to everybody in a specific room.
+-- socket.broadcast.to.emit():  this is sending an event to everyone except for the specific client
+but it's limiting it to a specific chatroom.
